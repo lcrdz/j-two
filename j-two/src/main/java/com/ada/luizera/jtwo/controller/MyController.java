@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 
-    @GetMapping("/ols")
+    @GetMapping("/ola/{ocupacao}")
     public People hello(@PathVariable String ocupacao) {
 
         People luizera = new People("Luizera", "professor");
         People alex = new People("Alex", "aluno");
 
-        if (ocupacao == "professor") {
+        if (ocupacao.equals("professor")) {
             return luizera;
-        } else if (ocupacao == "aluno") {
+        } else if (ocupacao.equals("aluno")) {
             return alex;
         } else {
             throw new RuntimeException();
